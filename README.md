@@ -4,7 +4,7 @@ WikiToMarkdown
 Confluence Wiki to Markdown (Github flavor) converter.
 
 This tool accepts a xml backup from Confluence 3.x/4.x and converts all pages into Markdown.
-Besides page the tool supports extracting attachments.
+Besides converting wiki markup of pages the tool supports extracting attachments and some additional processing.
 
 # Features
 Currently it supports the following WIKI macros/markup:
@@ -40,6 +40,20 @@ Handlebars compliance - encode `{{` in output markup
 
 ## -frontmeta
 A name of template of metadata for adding to every output file. See example below.
+Template can contain properties of current page in form `{prop}`.
+The following properties are supported:
+* id - confluence numeric identifier
+* title - page title
+* name - page name (title in lower case with spaces replaced by "-")
+* section - section name - name of 1st level page 
+* parent/parent.name - name of parent page
+* parent.title - title of parent page
+* position - order in parent
+* children - list of child pages (as YAML list)
+* tags/labels - list of page labels (as YAML list)
+* isroot - 'true' for all 1st level pages (pages under root 'Main' page)
+
+TODO: it's needed some details on what 'section' is.
 
 See Converter\TemplatePageProcessor.cs for details.
 

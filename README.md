@@ -6,7 +6,10 @@ Confluence Wiki to Markdown (Github flavor) converter.
 This tool accepts a xml backup from Confluence 3.x/4.x and converts all pages into Markdown.
 Besides converting wiki markup of pages the tool supports extracting attachments and some additional processing.
 
-# Features
+# MOTIVATION
+The tool was created for migration our internal documention from Atlassian Confluence (WIKI) to static site which based on [Assemble](http://assemble.io) build tool and Markdown.
+
+# FEATURES
 Currently it supports the following WIKI macros/markup:
 * `{code}`
 * `{noformat}`
@@ -61,7 +64,7 @@ See Converter\TemplatePageProcessor.cs for details.
 ```
 ..\bin\Debug\conf2md.exe myspace-193434-306.xml out -ext:.md -handlebars -frontmeta:front-meta.yml
 ```
-where front-meta-yml is
+where front-meta.yml is a file:
 ```
 ---
 title: {Title}

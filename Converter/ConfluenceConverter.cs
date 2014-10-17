@@ -194,6 +194,13 @@ namespace Croc.Tools.ConfluenceConverter
 					string name = match.Groups[1].Value;
 					return "<a id='" + name + "'></a>";
 				}),
+
+				new Transform("{color}", new Regex(@"\{color:([^\}]+?)\}(.+?)\{color\}"), match =>
+				{
+					string color = match.Groups[1].Value;
+					string text = wiki2Markdown(match.Groups[2].Value);
+					return string.Format("<span style='color: {0}'>{1}</span>", color, text);
+				})
 			};
 			
 			// TODO: {color:red}{color}

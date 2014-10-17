@@ -89,6 +89,10 @@ namespace Croc.Tools.ConfluenceConverter
 					if (arg.StartsWith("-frontmeta:"))
 					{
 						string frontMetaTemplateFile = arg.Substring("-frontmeta:".Length);
+						if (!File.Exists(frontMetaTemplateFile))
+						{
+							terminate("Front-meta template does not exists: " + frontMetaTemplateFile);
+						}
 						options.FrontMetaTemplate = File.ReadAllText(frontMetaTemplateFile);
 					}
 					if (arg.StartsWith("-slugify"))

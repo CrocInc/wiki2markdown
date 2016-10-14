@@ -1,5 +1,4 @@
 # WikiToMarkdown
-=============
 
 Confluence Wiki to Markdown (Github flavor) converter.
 
